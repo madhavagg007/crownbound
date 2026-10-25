@@ -1,0 +1,1 @@
+{"name":"crownbound","version":"1.0.0","private":true,"description":"Offline-first tournament bracket manager","scripts":{"test":"node --test tests/engine.test.js","start":"python3 -m http.server 8000"}}

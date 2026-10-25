@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Crownbound — Tournament Manager</title><meta name="theme-color" content="#0b1020">
+<link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="css/styles.css"></head>
+<body><div class="app">
+<aside class="side"><div class="brand"><span>👑</span><b>Crown<i>bound</i></b></div>
+<nav class="nav" role="tablist"><button role="tab" class="tab on" data-tab="dash"><span>🏠</span>Home</button><button role="tab" class="tab" data-tab="bracket"><span>🧩</span>Bracket</button><button role="tab" class="tab" data-tab="matches"><span>📋</span>Matches</button><button role="tab" class="tab" data-tab="table"><span>📊</span>Table</button><button role="tab" class="tab" data-tab="library"><span>📁</span>Library</button></nav>
+<div class="side-foot"><button id="newBtn" aria-label="New tournament">＋ <em>New tournament</em></button></div></aside>
+<div class="main"><header class="top"><div><h2 id="title">Crownbound</h2><span class="pill" id="status" role="status">Ready</span></div>
+<div class="actions"><button class="secondary" id="undo">↶ Undo</button><button class="secondary" id="save">Save</button><button class="secondary" id="share">Share</button>
+<details class="menu"><summary class="secondary">⋯</summary><div><button class="secondary" id="exportBtn">Export JSON</button><button class="secondary" id="importBtn">Import JSON</button><button class="secondary" id="pngBtn">Download PNG</button><button class="secondary" id="printBtn">Print</button><button class="secondary" id="resetRes">Reset results</button><button class="danger" id="reset">Delete tournament</button></div></details></div></header>
+<div id="champion"></div>
+<main class="view"><section class="panel on" id="dash"></section><section class="panel" id="bracket"></section><section class="panel" id="matches"></section><section class="panel" id="table"></section><section class="panel" id="library"></section></main></div></div>
+<input type="file" id="importFile" accept="application/json" hidden>
+<dialog id="newDlg"><h3>New tournament</h3>
+<label for="name">Name</label><input id="name" value="Weekend Cup" maxlength="50">
+<label for="format">Format</label><select id="format"><option value="single">Single elimination</option><option value="double">Double elimination</option><option value="roundrobin">Round robin</option></select>
+<label class="check"><input type="checkbox" id="third"> Third-place match (single elimination)</label>
+<label for="teams">Teams, one per line (line 1 = top seed)</label><textarea id="teams" rows="7" placeholder="Falcons&#10;Titans&#10;Wolves"></textarea>
+<div class="btns"><button class="secondary" id="shuffle">Shuffle</button><button class="secondary" id="sample">8-team sample</button></div>
+<div class="btns end"><button class="secondary" id="cancelNew">Cancel</button><button id="generate">Create</button></div></dialog>
+<dialog id="matchDlg"></dialog><dialog id="askDlg"></dialog><div id="toast" role="alert"></div>
+<script src="js/engine.js"></script><script src="js/app.js"></script></body></html>
